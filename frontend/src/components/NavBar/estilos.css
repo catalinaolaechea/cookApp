@@ -1,0 +1,92 @@
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  font-size: 25px;
+  font-weight: 55px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
+}
+
+.nav-links li:hover {
+  text-decoration: underline;
+}
+
+.Icono {
+  height: 50px;
+  width: 190px;
+}
+
+.nav-button {
+  background-color: #040404;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.nav-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* ✅ Nuevos estilos para usuario loggeado */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-greeting {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@media (max-width: 426px) {
+  .Icono {
+    height: 40px;
+    width: 150px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-button {
+    padding: 0.5rem 0.5rem;
+    border-radius: 1px;
+    font-size: 1rem;
+  }
+
+  .user-greeting {
+    display: none; /* Ocultar saludo en móviles */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 3rem;
+  }
+
+  .nav-links li {
+    font-size: 16px;
+  }
+
+  .user-greeting {
+    font-size: 0.9rem;
+  }
+}

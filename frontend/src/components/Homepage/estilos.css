@@ -1,0 +1,63 @@
+.Hero-title {
+    background-image: url('../assets/fotoFondo.jpg');
+    background-size: cover; /* Hace que la imagen cubra completamente el contenedor */
+    background-position: center; /* Centra la imagen en caso de que tenga un tamaño desproporcionado */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    width: 100%; /* Ocupa todo el ancho del viewport */
+    height: 800px;
+}
+  
+.Hero-info{
+    font-size: 32px;
+    font-weight: 900px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    width: 60%;
+    padding-top: 300px;
+}
+
+.Hero-info button {
+    background-color: #040404;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.Hero-info button:hover{
+    background-color:white; 
+    color: black;       
+}
+
+.Hero-info h1{
+    padding-bottom: 50px ;
+    font-family: Poppins,sans-serif;
+    font-weight: 750;
+    color: white;
+}
+
+@media (max-width:426px) {
+    button{
+        padding: 0.5rem 0.5rem;
+        border-radius: 1px;
+        font-size: 1rem;
+    }
+
+    .Hero-title{
+        height: 500px;
+        width: 100%;
+    }
+
+
+    .Hero-info{
+        width: 90%;
+        font-size: 20px;
+        font-weight: 500px;
+        padding-top: 150px;
+    }
+
+}
+

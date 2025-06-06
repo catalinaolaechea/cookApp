@@ -1,0 +1,43 @@
+
+.footer-content{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    font-family: Poppins,sans-serif;
+    padding-top: 250px;
+}
+
+.footer-download{
+    padding-bottom: 20px;
+}
+
+.footer-download p{
+    padding-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.footer-download img{
+    cursor: pointer;
+}
+
+.footer-img img{
+    width: 100%;
+}
+
+
+@media (max-width:426px) {
+    
+    .footer-download{
+        width: 90%;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .footer-download img{
+        width: 300px;
+        height: 65px;
+    }
+
+}
