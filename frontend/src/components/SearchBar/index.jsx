@@ -1,4 +1,5 @@
 "use client"
+import './estilos.css'
 
 export const SearchBar = ({ value, onChange, onSearch }) => {
   const handleSubmit = (e) => {
@@ -8,18 +9,19 @@ export const SearchBar = ({ value, onChange, onSearch }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="searchBar-container">
-        <input 
-          type="text" 
-          placeholder="Buscar receta..." 
-          value={value} 
-          onChange={onChange} 
-          className="search-input" 
-        />
-        <button type="submit" className="search-button">
-          Buscar
-        </button>
-      </form>
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="text" 
+            placeholder="Buscar receta..." 
+            value={value} 
+            onChange={onChange}  
+          />
+          <button type="submit">
+            Buscar
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import Home from "./components/Homepage/Home"
 import Footer from "./components/footer/Footer"
 import Error404 from "./components/error404/index"
 import Create from './components/create/newRecipes'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 import './App.SCSS'; 
 
@@ -21,7 +22,7 @@ function InspoPage() {
     if(recipesSearch.trim() !== ""){
       setIsLoading(true)
       try{
-        const {data}= await axios.get(`http://localhost:3000/?query=${recipesSearch}`);
+        const {data}= await axios.get(`http://localhost:3000/external-recipes?query=${recipesSearch}`);
         setRecipes(data.meals);
       } catch(error){
         console.error('error al obtener receta: ', error);
@@ -37,8 +38,6 @@ function InspoPage() {
       
     
     }, [recipesSearch] )
-
-// si pones el useEffect inhibis la accion de onClick para buscar por el usuario
 
   return (
     <div>

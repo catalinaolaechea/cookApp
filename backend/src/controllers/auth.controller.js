@@ -45,7 +45,7 @@ exports.register = async (req, res) => {
 //para logearse(usuario ya existe)
 exports.login = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(email, password);
   // Validación básica
   if (!email || !password) {
     return res
@@ -68,26 +68,23 @@ exports.login = async (req, res) => {
       return res.status(401).json({ error: 'Credenciales inválidas' });
     }
 
-    // 2️⃣ Extraer los datos del usuario (solo se repite id, username, password)
-    const { id, username, password: hashedPassword } = rows[0]; // <- extrae el password y lo guarda en hashedPassword
+    
+    const { id, username, password: hashedPassword } = rows[0]; 
 
-    // 3️⃣ Verificar contraseña con bcrypt
     const passwordMatch = await bcrypt.compare(password, hashedPassword);
     if (!passwordMatch) {
       return res.status(401).json({ error: 'Credenciales inválidas' });
     }
 
-    // 4️⃣ Extraer los roles desde el resultado del JOIN
-    const roles = rows.map((row) => row.role).filter(Boolean); // Remueve posibles `null`
+    const roles = rows.map((row) => row.role).filter(Boolean); 
 
     // 5️⃣ Generar el token JWT
     const token = jwt.sign(
-      { id, username, roles }, // <- payload que codificás dentro del token
-      process.env.JWT_SECRET, // <- clave secreta para firmar
-      { expiresIn: process.env.JWT_EXPIRES_IN || '1d' } // <- duración del token
+      { id, username, roles }, 
+      process.env.JWT_SECRET, 
+      { expiresIn: process.env.JWT_EXPIRES_IN || '1d' } 
     );
 
-    // 6️⃣ Devolver el token al frontend
     res.status(200).json({ message: 'Login exitoso', token });
   } catch (err) {
     console.error('Error en login:', err);

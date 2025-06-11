@@ -10,7 +10,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// ✅ Rutas de tu sistema de recetas
+// Rutas para la app
 app.use("/auth", authRoutes)
 app.use("/recipes", recipesRouter)
 app.get("/profile", authenticateToken, (req, res) => {

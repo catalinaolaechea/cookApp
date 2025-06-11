@@ -43,7 +43,6 @@ const CreateRecipe = () => {
       if (result.success) {
         alert(`¡Receta "${name}" guardada exitosamente en la base de datos!`)
 
-        // Limpiar formulario
         setName("")
         setDescription("")
         setIngredients("")

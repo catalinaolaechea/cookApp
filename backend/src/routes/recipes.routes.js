@@ -15,7 +15,7 @@ router.get(
 router.get(
     '/:id', 
     authenticateToken,
-    controller.getById
+    controller.getOne
 );
 
 router.delete(

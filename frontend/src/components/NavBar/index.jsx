@@ -9,16 +9,16 @@ import "./estilos.css"
 const Home = () => {
   const [showModal, setShowModal] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [user, setUser] = useState(null)
+  const [users, setUser] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
 
-  // Estados para los formularios
+  //estado para 
   const [loginData, setLoginData] = useState({ email: "", password: "" })
+
   const [registerData, setRegisterData] = useState({
     name: "",
-    lastname: "",
     email: "",
     username: "",
     password: "",
@@ -124,7 +124,7 @@ const Home = () => {
         },
         body: JSON.stringify({
           username: registerData.username,
-          name: `${registerData.name} ${registerData.lastname}`,
+          name: `${registerData.name}`,
           email: registerData.email,
           password: registerData.password,
         }),
@@ -136,7 +136,6 @@ const Home = () => {
         setSuccess("¡Cuenta creada exitosamente! Ahora puedes iniciar sesión.")
         setRegisterData({
           name: "",
-          lastname: "",
           email: "",
           username: "",
           password: "",
@@ -171,18 +170,22 @@ const Home = () => {
           <li>
             <Link to="/inspo">Get inspired</Link>
           </li>
-          {/* ✅ Solo mostrar "Create now" si está loggeado */}
           {isLoggedIn && (
-            <li>
-              <Link to="/create">Create now</Link>
-            </li>
+            <ul className="nav-links">
+              <li>
+                <Link to="/create">Create now</Link>
+              </li>
+              <li>
+                <p>ver</p>
+              </li>
+            </ul>
+            
           )}
         </ul>
 
-        {/* ✅ Cambiar botón según estado de autenticación */}
         {isLoggedIn ? (
           <div className="d-flex align-items-center gap-3">
-            <span className="text-primary fw-bold">¡Hola, {user?.username}!</span>
+            <span className="text-primary fw-bold">¡Hola, {users?.name}!</span>
             <button className="nav-button" onClick={handleLogout}>
               Cerrar Sesión
             </button>
@@ -246,16 +249,6 @@ const Home = () => {
                         className="py-2"
                         value={registerData.name}
                         onChange={(e) => setRegisterData({ ...registerData, name: e.target.value })}
-                        required
-                      />
-                    </Col>
-                    <Col>
-                      <Form.Control
-                        type="text"
-                        placeholder="Apellido"
-                        className="py-2"
-                        value={registerData.lastname}
-                        onChange={(e) => setRegisterData({ ...registerData, lastname: e.target.value })}
                         required
                       />
                     </Col>

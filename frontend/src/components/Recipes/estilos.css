@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #d9d9d95f;
-  width: 91%;
+  width: 90%;
   padding: 8px;
   border-radius: 10px;
   gap: 15px;
@@ -39,28 +39,46 @@
   cursor: pointer;
 }
 
-.card-recipe-img{
+.card-info{
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.card-info img{
   width: 200px;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.card-info h2{
+.card-info p{
+  font-size: 30px;
   font-family:Arial, Helvetica, sans-serif;
+  color: rgb(27, 27, 27);        
 }
 
-.container-error-message{
+
+.container-message{
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.error-message{
+.container-message div{
   padding-top: 50px ;
   width: 90%;
   margin: auto;
   align-items: center;
   text-align: center;
   font-family:Arial, Helvetica, sans-serif;
+}
+
+.container-message div p{
+  font-size: 30px;
+}
+
+.error-message{
+  color:red;
+  font-size: 25px;
 }
