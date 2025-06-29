@@ -31,7 +31,7 @@ export const useRecipeSearch = (endpoint, options = {}) => {
         if (requireAuth) {
           const token = localStorage.getItem("token")
           if (!token) {
-            throw new Error("No hay token de autenticación")
+            throw new Error("There is no authentication token")
           }
           headers.Authorization = `Bearer ${token}`
         }
@@ -53,7 +53,7 @@ export const useRecipeSearch = (endpoint, options = {}) => {
         // Manejar diferentes formatos de respuesta
         setRecipes(data.meals || data)
       } catch (error) {
-        console.error("Error al obtener recetas:", error)
+        console.error("Error obtaining recipes:", error)
         setRecipes(null)
       } finally {
         setIsLoading(false)
