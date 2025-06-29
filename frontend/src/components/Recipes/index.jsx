@@ -11,8 +11,8 @@ export const Recipes = ({ recipes, isLoading }) => {
     return (
       <div className="container-message">
         <div>
-          <p>¡Hora de inspirarse!</p>
-          <p>Busca una receta para comenzar</p>
+          <p>¡It's time to get inspired!</p>
+          <p>What do you want to cook today?</p>
         </div>
       </div>
     )
@@ -37,8 +37,8 @@ export const Recipes = ({ recipes, isLoading }) => {
       ) : recipes && recipes.length === 0 ? (
         <div className="container-message">
           <div className="error-message">
-            <p>No se encontraron resultados</p>
-            <p>Intenta con otra búsqueda</p>
+            <p>no recipes were found</p>
+            <p>encourage to create it or search for another idea</p>
           </div>
         </div>
       ) : null}
@@ -60,7 +60,7 @@ const Recipe = ({ recipe, onShowMore }) => {
         <img src={recipe.strMealThumb || "/placeholder.svg"} alt={recipe.strMeal} />
       </div>
       <button className="btn-show" onClick={handleShowMoreClick}>
-        Ver más
+        See more
       </button>
     </div>
   )
