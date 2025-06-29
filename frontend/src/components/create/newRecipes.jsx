@@ -98,9 +98,9 @@ const CreateRecipe = () => {
 
             {!isLoggedIn && (
               <div className="alert alert-warning" role="alert">
-                Parece que no estás loggeado. Asegúrate de haber iniciado sesión.
+                It seems that you are not logged in. Make sure you have logged in.
                 <button className="btn btn-sm btn-outline-primary ms-2" onClick={() => navigate("/")}>
-                  Ir al inicio
+                  Home
                 </button>
               </div>
             )}
@@ -124,28 +124,28 @@ const CreateRecipe = () => {
               <div className="form-to-complete">
                 <input
                   type="text"
-                  placeholder="Nombre de la receta"
+                  placeholder="Title"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
                 />
 
                 <textarea
-                  placeholder="Descripción breve"
+                  placeholder="About the recipe"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   required
                 />
 
                 <textarea
-                  placeholder="Ingredientes (separados por comas)"
+                  placeholder="Ingredients (separated by commas)"
                   value={ingredients}
                   onChange={(e) => setIngredients(e.target.value)}
                   required
                 />
 
                 <textarea
-                  placeholder="Pasos a seguir"
+                  placeholder="Steps"
                   value={steps}
                   onChange={(e) => setSteps(e.target.value)}
                   required
@@ -156,10 +156,10 @@ const CreateRecipe = () => {
                 {isSubmitting ? (
                   <>
                     <span className="spinner-border spinner-border-sm me-2" role="status"></span>
-                    Publicando...
+                    Cooking...
                   </>
                 ) : (
-                  "Publicar receta"
+                  "Submit"
                 )}
               </button>
               
