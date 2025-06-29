@@ -54,7 +54,7 @@ const NavBar = () => {
                   </>
                 )}
                 {isInitialized ? ( isLoggedIn ? (
-                  <NavDropdown.Item onClick={handleLogout}>Cerrar Sesión</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleLogout}>Sign out</NavDropdown.Item>
                 ) : (
                   <NavDropdown.Item>
                     <Nav.Link onClick={handleShowModal}>Sign in</Nav.Link>
@@ -106,7 +106,7 @@ const NavBar = () => {
                   <Link to="/create">Create now</Link>
                 </li>
                 <li>
-                  <Link to="/profile">tu cuenta</Link>
+                  <Link to="/profile">Profile</Link>
                 </li>
               </ul>
             )}
@@ -117,7 +117,7 @@ const NavBar = () => {
               <div className="d-flex align-items-center gap-3">
                 <span className="text-primary fw-bold">¡Hola, {getUsernameFromToken()}!</span>
                 <button className="nav-button" onClick={handleLogout}>
-                  Cerrar Sesión
+                  Sign out
                 </button>
               </div>
             ) : (
