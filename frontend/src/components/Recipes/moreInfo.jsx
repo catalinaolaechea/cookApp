@@ -42,7 +42,7 @@ export const RecipeDetail = ({ recipe, onClose }) => {
 
           <Col md={6}>
             <div className="mb-4">
-              <h2 className="fs-5 fw-bold mb-3">Ingredientes</h2>
+              <h2 className="fs-5 fw-bold mb-3">Ingredients</h2>
               <ListGroup variant="flush">
                 {Array.from({ length: 20 }).map((_, i) => {
                   const ingredient = recipe?.[`strIngredient${i + 1}`]
@@ -65,9 +65,9 @@ export const RecipeDetail = ({ recipe, onClose }) => {
 
             {recipe?.strYoutube && (
               <div className="mb-4">
-                <h2 className="fs-5 fw-bold mb-3">Video Tutorial</h2>
+                <h2 className="fs-5 fw-bold mb-3">Tutorial</h2>
                 <Button variant="danger" href={recipe.strYoutube} target="_blank" rel="noopener noreferrer">
-                  Ver video en YouTube
+                  Go to YouTube
                 </Button>
               </div>
             )}
@@ -75,14 +75,14 @@ export const RecipeDetail = ({ recipe, onClose }) => {
         </Row>
 
         <div className="mt-4">
-          <h2 className="fs-5 fw-bold mb-3">Instrucciones</h2>
+          <h2 className="fs-5 fw-bold mb-3">Steps</h2>
           <div>{formatInstructions(recipe?.strInstructions)}</div>
         </div>
       </Modal.Body>
 
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
-          Cerrar
+          Close 
         </Button>
       </Modal.Footer>
     </Modal>
