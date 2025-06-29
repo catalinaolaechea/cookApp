@@ -9,30 +9,30 @@ const DeleteRecipeModal = ({ recipeToDelete, onConfirm, onCancel, isDeleting }) 
     <div className="recipe-modal-overlay">
       <div className="delete-modal">
         <div className="delete-modal-header">
-          <h3>Confirmar eliminación</h3>
+          <h3>Confirm delete</h3>
         </div>
         <div className="delete-modal-content">
           <div className="delete-warning">
             <Trash2 size={48} className="delete-icon" />
-            <p>¿Estás seguro de que quieres eliminar la receta?</p>
+            <p>¿Are you shure you want to delete this recipe?</p>
             <p className="recipe-name-to-delete">"{recipeToDelete.name}"</p>
-            <p className="delete-warning-text">Esta acción no se puede deshacer.</p>
+            <p className="delete-warning-text">the secret recipe will be lost.</p>
           </div>
         </div>
         <div className="delete-modal-actions">
           <button onClick={onCancel} className="cancel-delete-btn" disabled={isDeleting}>
-            Cancelar
+            Cancel
           </button>
           <button onClick={onConfirm} className="confirm-delete-btn" disabled={isDeleting}>
             {isDeleting ? (
               <>
                 <span className="spinner"></span>
-                Eliminando...
+                throwing recipe...
               </>
             ) : (
               <>
                 <Trash2 size={16} />
-                Eliminar receta
+                I'm sure
               </>
             )}
           </button>
