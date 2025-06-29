@@ -31,13 +31,13 @@ export const RecipeCard = ({ recipe, onEdit, onDelete, onView }) => {
           {showFullDescription ? recipe.description : truncateText(recipe.description)}
           {recipe.description && recipe.description.length > 100 && (
             <button onClick={() => setShowFullDescription(!showFullDescription)} className="toggle-description">
-              {showFullDescription ? " Ver menos" : " Ver más"}
+              {showFullDescription ? " See less " : " See more "}
             </button>
           )}
         </p>
 
         <div className="recipe-ingredients">
-          <strong>Ingredientes:</strong>
+          <strong>Ingredients:</strong>
           <p>{truncateText(recipe.ingredients, 80)}</p>
         </div>
       </div>
