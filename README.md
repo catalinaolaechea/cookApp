@@ -1,5 +1,5 @@
 # CookApp
-> Una app para sacar tu lado más innovador en las recetas
+> Una app para sacar tu lado más innovador a la hora de crear recetas
 
 *Una versión más actualizada de [Cookapp sin base de datos ni rutas](https://proyecto-react-black.vercel.app/)*
 
