@@ -36,8 +36,7 @@ export const RecipeDetail = ({ recipe, onClose }) => {
             <img
               src={recipe?.strMealThumb || "/placeholder.svg?height=400&width=400"}
               alt={recipe?.strMeal}
-              className="img-fluid rounded"
-              style={{ width: "100%", objectFit: "cover" }}
+              className="img-fluid rounded w-100 object-fit-cover"
             />
           </Col>
 

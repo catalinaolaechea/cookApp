@@ -82,3 +82,71 @@
   color:red;
   font-size: 25px;
 }
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .recipes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card-info p {
+    font-size: 16px;
+  }
+
+  .card-info img {
+    height: 150px;
+  }
+
+  .container-message div p {
+    font-size: 20px;
+  }
+  
+}
+
+/* Mobile (425px) */
+@media (max-width: 425px) {
+  .recipes-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .card-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .card-info p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  .card-info img {
+    width: 150px;
+    height: 120px;
+  }
+
+  .btn-show {
+    padding: 6px 12px;
+    font-size: 12px;
+    max-width: 100px;
+  }
+
+  .container-message {
+    padding: 10px;
+  }
+
+  .container-message div {
+    padding-top: 30px;
+  }
+
+  .container-message div p {
+    font-size: 16px;
+  }
+
+  .error-message {
+    font-size: 16px;
+  }
+}

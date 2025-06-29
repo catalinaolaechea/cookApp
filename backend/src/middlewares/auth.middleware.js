@@ -1,44 +1,48 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken")
 
-// ✅ Middleware: Verifica que el token JWT sea válido
 const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader?.split(' ')[1]; // Espera formato "Bearer <token>"
+  const authHeader = req.headers["authorization"]
+  const token = authHeader && authHeader.split(" ")[1]
 
   if (!token) {
-    return res.status(401).json({ message: 'Token no proporcionado.' });
+    return res.status(401).json({ error: "Token de acceso requerido" })
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, userData) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) {
-      return res.status(403).json({ message: 'Token inválido o expirado.' });
+      console.error("Error verificando token:", err)
+      return res.status(403).json({ error: "Token inválido" })
     }
 
-    // Guardamos los datos del usuario en req.user para usarlo en siguientes middlewares
-    req.user = userData;
-    next();
-  });
-};
+    user.id = Number.parseInt(user.id)
 
-// ✅ Middleware: Verifica que el usuario tenga al menos uno de los roles requeridos
-const authorizeRole = (...allowedRoles) => {
+    console.log("Usuario autenticado:", {
+      id: user.id,
+      username: user.username,
+      roles: user.roles,
+      idType: typeof user.id,
+    })
+
+    req.user = user
+    next()
+  })
+}
+
+const authorizeRole = (requiredRole) => {
   return (req, res, next) => {
-    const userRoles = req.user?.roles || [];
-
-    // Verifica si al menos uno de los roles del usuario está en los roles permitidos
-    const hasRole = userRoles.some((role) => allowedRoles.includes(role));
-
-    if (!hasRole) {
-      return res
-        .status(403)
-        .json({ message: 'No tienes permisos suficientes.' });
+    if (!req.user) {
+      return res.status(401).json({ error: "Usuario no autenticado" })
     }
 
-    next();
-  };
-};
+    if (!req.user.roles || !req.user.roles.includes(requiredRole)) {
+      return res.status(403).json({ error: "No tienes permisos para realizar esta acción" })
+    }
+
+    next()
+  }
+}
 
 module.exports = {
   authenticateToken,
   authorizeRole,
-};
+}

@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+const pool = require("../config/db")
 
 exports.getAll = async () => {
   try {
@@ -9,15 +9,16 @@ exports.getAll = async () => {
         r.description,
         r.steps,
         r.ingredients,
+        r.user_id,
         u.username 
       FROM recipes r
       LEFT JOIN users u ON r.user_id = u.id
-    `);
-    return rows;
+    `)
+    return rows
   } catch (error) {
-    throw new Error('Error al obtener recetas');
+    throw new Error("Error al obtener recetas")
   }
-};
+}
 
 exports.getById = async (id) => {
   try {
@@ -29,21 +30,23 @@ exports.getById = async (id) => {
         r.description,
         r.steps,
         r.ingredients,
+        r.user_id,
         u.username
       FROM recipes r
       LEFT JOIN users u ON r.user_id = u.id
       WHERE r.recipe_id = ?
-      `, [id]
-    );
-    return rows[0];
+      `,
+      [id],
+    )
+    return rows[0]
   } catch (error) {
-    throw new Error('Error al obtener receta por su id');
+    throw new Error("Error al obtener receta por su id")
   }
-};
+}
 
-//chequear
-exports.getAllByUserId = async (userId) =>{
-  try{const [rows] = await pool.query(
+exports.getAllByUserId = async (userId) => {
+  try {
+    const [rows] = await pool.query(
       `
       SELECT 
         r.recipe_id as id,
@@ -51,40 +54,41 @@ exports.getAllByUserId = async (userId) =>{
         r.description,
         r.steps,
         r.ingredients,
+        r.user_id,
         u.username
       FROM recipes r
       LEFT JOIN users u ON r.user_id = u.id
       WHERE r.user_id = ?
-      `, 
-      [userId]
-    );
-    return rows;
+      `,
+      [userId],
+    )
+    return rows
   } catch (error) {
-    throw new Error('Error al obtener recetas por id de usuario');
+    throw new Error("Error al obtener recetas por id de usuario")
   }
 }
 
 exports.create = async ({ name, description, steps, ingredients, user_id }) => {
   try {
     const [result] = await pool.query(
-      'INSERT INTO recipes (name, description, steps, ingredients, user_id) VALUES (?, ?, ?, ?, ?)',
-      [name, description, steps, ingredients, user_id]
-    );
-    return { recipe_id: result.insertId, name, description, steps, ingredients, user_id };
+      "INSERT INTO recipes (name, description, steps, ingredients, user_id) VALUES (?, ?, ?, ?, ?)",
+      [name, description, steps, ingredients, user_id],
+    )
+    return { recipe_id: result.insertId, name, description, steps, ingredients, user_id }
   } catch (error) {
-    throw new Error('Error al crear receta');
+    throw new Error("Error al crear receta")
   }
-};
+}
 
-exports.update = async (id, { name, description, steps, ingredients}) => {
+exports.update = async (id, { name, description, steps, ingredients }) => {
   try {
     const [result] = await pool.query(
-      'UPDATE recipes SET name = ?, description = ?, steps = ?, ingredients = ? WHERE recipe_id = ?',
-      [name, description, steps, ingredients, id]
-    );
+      "UPDATE recipes SET name = ?, description = ?, steps = ?, ingredients = ? WHERE recipe_id = ?",
+      [name, description, steps, ingredients, id],
+    )
 
     if (result.affectedRows === 0) {
-      throw new Error('Receta no encontrada para actualizar');
+      throw new Error("Receta no encontrada para actualizar")
     }
 
     const [updatedRows] = await pool.query(
@@ -93,20 +97,19 @@ exports.update = async (id, { name, description, steps, ingredients}) => {
     )
 
     return updatedRows[0]
-
   } catch (error) {
     throw new Error("Error al actualizar receta")
   }
-};
+}
 
 exports.remove = async (id) => {
   try {
-    const [result] = await pool.query('DELETE FROM recipes WHERE recipe_id = ?', [id]);
+    const [result] = await pool.query("DELETE FROM recipes WHERE recipe_id = ?", [id])
     if (result.affectedRows === 0) {
-      throw new Error('Receta no encontrada para eliminar');
+      throw new Error("Receta no encontrada para eliminar")
     }
-    return { deleted: true };
+    return { deleted: true }
   } catch (error) {
-    throw new Error('Error al eliminar receta');
+    throw new Error("Error al eliminar receta")
   }
-};
+}

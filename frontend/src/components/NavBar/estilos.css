@@ -1,4 +1,4 @@
-
+/* Estilos existentes para desktop */
 nav {
   display: flex;
   justify-content: space-between;
@@ -43,7 +43,6 @@ nav {
   color: black;
 }
 
-/* ✅ Nuevos estilos para usuario loggeado */
 .user-info {
   display: flex;
   align-items: center;
@@ -56,37 +55,67 @@ nav {
   font-size: 1rem;
 }
 
-@media (max-width: 426px) {
-  .Icono {
-    height: 40px;
-    width: 150px;
-  }
+.navbar-brand .Icono {
+  height: 40px;
+  width: 150px;
+}
 
-  .nav-links {
+.dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  /* Ocultar el nav original */
+  header nav {
     display: none;
   }
 
-  .nav-button {
-    padding: 0.5rem 0.5rem;
-    border-radius: 1px;
-    font-size: 1rem;
+  /* Mostrar el navbar de Bootstrap */
+  .navbar {
+    display: flex !important;
   }
 
-  .user-greeting {
-    display: none; /* Ocultar saludo en móviles */
+  .navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
   }
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    gap: 3rem;
+@media (min-width: 769px) {
+  /* Ocultar el navbar de Bootstrap */
+  .navbar {
+    display: none !important;
   }
 
-  .nav-links li {
-    font-size: 16px;
+  /* nav original */
+  header nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 426px) {
+  .navbar-brand .Icono {
+    height: 35px;
+    width: 120px;
   }
 
-  .user-greeting {
+  .dropdown-item {
     font-size: 0.9rem;
+    padding: 0.5rem 1rem;
   }
 }

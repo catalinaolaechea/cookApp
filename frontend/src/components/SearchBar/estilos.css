@@ -32,3 +32,21 @@
     padding: 10px 25px;
     background-color: cadetblue;
 }
+
+@media (max-width: 425px) {
+    .container{
+        padding-top: 13%;
+    }
+    .container form{
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .container form input{
+        margin-bottom: 4%;
+        width: 80%;
+    }
+    .container form button{
+        padding: 3% 8%;
+    }
+}

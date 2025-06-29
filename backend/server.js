@@ -1,7 +1,6 @@
 require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
-const axios = require("axios")
 const authRoutes = require("./src/routes/auth.routes")
 const recipesRouter = require("./src/routes/recipes.routes")
 const { authenticateToken, authorizeRole } = require("./src/middlewares/auth.middleware")
@@ -12,28 +11,29 @@ app.use(express.json())
 
 // Rutas para la app
 app.use("/auth", authRoutes)
+
 app.use("/recipes", recipesRouter)
+
 app.get("/profile", authenticateToken, (req, res) => {
   res.json({ message: `Hola , ${req.user.username}!`, roles: req.user.roles })
 })
 
-// ✅ Ruta para API externa de MealDB
 app.get("/external-recipes", async (req, res) => {
   const { query } = req.query
 
   if (!query) {
-    return res.status(400).json({ message: "Parámetro 'query' es requerido" })
+    return res.status(400).json({ message: "se requiere un parametro de busqueda" })
   }
 
-  console.log("Buscando recetas externas:", query)
   try {
-    const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
+    const data = await response.json()
 
-    if (!response.data.meals) {
+    if (!data.meals) {
       return res.json({ meals: [] })
     }
 
-    res.json(response.data)
+    res.json(data)
   } catch (error) {
     console.error("Error en el backend:", error.message)
     res.status(500).json({ message: "Error al buscar datos" })
@@ -42,5 +42,5 @@ app.get("/external-recipes", async (req, res) => {
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor completo corriendo en http://localhost:${PORT}`)
+  console.log(`Servidor corriendo en http://localhost:${PORT}`)
 })
