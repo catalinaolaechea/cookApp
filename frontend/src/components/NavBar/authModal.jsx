@@ -6,21 +6,21 @@ const AuthModal = ({ showModal, handleCloseModal, handleLogin, handleRegister, l
   return (
     <Modal show={showModal} onHide={handleCloseModal} centered size="md" contentClassName="border-0 shadow">
       <Modal.Header closeButton className="bg-primary bg-opacity-10 border-0">
-        <Modal.Title className="w-100 text-center text-primary fw-bold">Acceso de Usuario</Modal.Title>
+        <Modal.Title className="w-100 text-center text-primary fw-bold">User account</Modal.Title>
       </Modal.Header>
       <Modal.Body className="px-4 py-4">
         {error && <Alert variant="danger">{error}</Alert>}
         {success && <Alert variant="success">{success}</Alert>}
 
         <Tabs defaultActiveKey="login" className="mb-4" justify>
-          <Tab eventKey="login" title="Iniciar Sesión">
+          <Tab eventKey="login" title="Login">
             <Card className="border-0 shadow-sm p-3">
               <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="email"
                     name="email"
-                    placeholder="Correo electrónico"
+                    placeholder="Email"
                     className="py-2"
                     required
                     autoComplete="email"
@@ -30,7 +30,7 @@ const AuthModal = ({ showModal, handleCloseModal, handleLogin, handleRegister, l
                   <Form.Control
                     type="password"
                     name="password"
-                    placeholder="Contraseña"
+                    placeholder="Password"
                     className="py-2"
                     required
                     autoComplete="current-password"
@@ -38,21 +38,21 @@ const AuthModal = ({ showModal, handleCloseModal, handleLogin, handleRegister, l
                 </Form.Group>
                 <div className="d-grid">
                   <Button variant="primary" size="lg" className="py-2" type="submit" disabled={loading}>
-                    {loading ? "Iniciando..." : "Iniciar Sesión"}
+                    {loading ? "Loading..." : "Login"}
                   </Button>
                 </div>
               </Form>
             </Card>
           </Tab>
 
-          <Tab eventKey="register" title="Crear Cuenta">
+          <Tab eventKey="register" title="Register">
             <Card className="border-0 shadow-sm p-3">
               <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="text"
                     name="name"
-                    placeholder="Nombre"
+                    placeholder="Name"
                     className="py-2"
                     required
                     autoComplete="name"
@@ -62,7 +62,7 @@ const AuthModal = ({ showModal, handleCloseModal, handleLogin, handleRegister, l
                   <Form.Control
                     type="email"
                     name="email"
-                    placeholder="Correo electrónico"
+                    placeholder="Email"
                     className="py-2"
                     required
                     autoComplete="email"
@@ -72,7 +72,7 @@ const AuthModal = ({ showModal, handleCloseModal, handleLogin, handleRegister, l
                   <Form.Control
                     type="text"
                     name="username"
-                    placeholder="Nombre de usuario"
+                    placeholder="Username"
                     className="py-2"
                     required
                     autoComplete="username"
@@ -82,7 +82,7 @@ const AuthModal = ({ showModal, handleCloseModal, handleLogin, handleRegister, l
                   <Form.Control
                     type="password"
                     name="password"
-                    placeholder="Contraseña"
+                    placeholder="Password"
                     className="py-2"
                     required
                     autoComplete="new-password"
@@ -90,7 +90,7 @@ const AuthModal = ({ showModal, handleCloseModal, handleLogin, handleRegister, l
                 </Form.Group>
                 <div className="d-grid">
                   <Button variant="primary" size="lg" className="py-2" type="submit" disabled={loading}>
-                    {loading ? "Creando..." : "Crear Cuenta"}
+                    {loading ? "Starting.." : "Create profile"}
                   </Button>
                 </div>
               </Form>
