@@ -15,7 +15,7 @@
   
 ## Herramientras utilizadas:
 - [x] base de datos via SQL
-- [x] algunas solicitudes HTTPS via [axios](https://axios-http.com/docs/intro)
+- [x] solicitudes HTTPS via [axios](https://axios-http.com/docs/intro)
 - [x] desarrollo con auto-reload via [nodemon](https://nodemon.io/)
 - [x] Librería para javascript via [React](https://es.react.dev/)
 - [x] ruteo de páginas via [React Router Dom](https://www.npmjs.com/package/react-router-dom)
