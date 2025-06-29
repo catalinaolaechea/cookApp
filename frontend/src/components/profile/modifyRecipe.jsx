@@ -9,7 +9,7 @@ const EditRecipeModal = ({ recipeToEdit, editFormData, handleEditFormChange, onC
     <div className="recipe-modal-overlay">
       <div className="edit-modal">
         <div className="edit-modal-header">
-          <h3>Editar receta</h3>
+          <h3>Modify secret recipe</h3>
           <button onClick={onCancel} className="close-modal-btn">
             <X size={24} />
           </button>
@@ -17,7 +17,7 @@ const EditRecipeModal = ({ recipeToEdit, editFormData, handleEditFormChange, onC
         <div className="edit-modal-content">
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form-group">
-              <label htmlFor="edit-name">Nombre de la receta</label>
+              <label htmlFor="edit-name">Title</label>
               <input
                 type="text"
                 id="edit-name"
@@ -30,7 +30,7 @@ const EditRecipeModal = ({ recipeToEdit, editFormData, handleEditFormChange, onC
             </div>
 
             <div className="form-group">
-              <label htmlFor="edit-description">Descripción</label>
+              <label htmlFor="edit-description">Description</label>
               <textarea
                 id="edit-description"
                 name="description"
@@ -42,7 +42,7 @@ const EditRecipeModal = ({ recipeToEdit, editFormData, handleEditFormChange, onC
             </div>
 
             <div className="form-group">
-              <label htmlFor="edit-ingredients">Ingredientes</label>
+              <label htmlFor="edit-ingredients">Ingredients</label>
               <textarea
                 id="edit-ingredients"
                 name="ingredients"
@@ -54,7 +54,7 @@ const EditRecipeModal = ({ recipeToEdit, editFormData, handleEditFormChange, onC
             </div>
 
             <div className="form-group">
-              <label htmlFor="edit-steps">Pasos</label>
+              <label htmlFor="edit-steps">Steps</label>
               <textarea
                 id="edit-steps"
                 name="steps"
@@ -68,18 +68,18 @@ const EditRecipeModal = ({ recipeToEdit, editFormData, handleEditFormChange, onC
         </div>
         <div className="edit-modal-actions">
           <button onClick={onCancel} className="cancel-edit-btn" disabled={isUpdating}>
-            Cancelar
+            Go back
           </button>
           <button onClick={onConfirm} className="confirm-edit-btn" disabled={isUpdating}>
             {isUpdating ? (
               <>
                 <span className="spinner"></span>
-                Actualizando...
+                Cooking...
               </>
             ) : (
               <>
                 <Edit size={16} />
-                Guardar cambios
+                Save changes
               </>
             )}
           </button>
