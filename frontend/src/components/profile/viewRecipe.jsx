@@ -16,15 +16,15 @@ const ViewRecipeModal = ({ selectedRecipe, onClose }) => {
         </div>
         <div className="recipe-modal-content">
           <div className="recipe-section">
-            <h3>Descripción</h3>
+            <h3>Description</h3>
             <p>{selectedRecipe.description}</p>
           </div>
           <div className="recipe-section">
-            <h3>Ingredientes</h3>
+            <h3>Ingredients</h3>
             <p>{selectedRecipe.ingredients}</p>
           </div>
           <div className="recipe-section">
-            <h3>Pasos</h3>
+            <h3>Steps</h3>
             <p>{selectedRecipe.steps}</p>
           </div>
         </div>
