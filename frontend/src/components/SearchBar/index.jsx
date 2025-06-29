@@ -13,12 +13,12 @@ export const SearchBar = ({ value, onChange, onSearch }) => {
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
-            placeholder="Buscar receta..." 
+            placeholder="Search recipes..." 
             value={value} 
             onChange={onChange}  
           />
           <button type="submit">
-            Buscar
+            Search
           </button>
         </form>
       </div>
