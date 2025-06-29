@@ -139,7 +139,7 @@ const ProfileInfo = ({ username, recipeCount }) => {
       <div className="user-info">
         <h2>{username}</h2>
         <p>
-          {recipeCount} receta{recipeCount !== 1 ? "s" : ""}
+          {recipeCount} recipe{recipeCount !== 1 ? "s" : ""}
         </p>
       </div>
     </div>
@@ -150,10 +150,10 @@ const SearchSection = ({ showInput, setShowInput, recipesSearch, handleSearchCha
   return (
     <div className="search-section">
       <div className="search-header">
-        <h3>Tus recetas</h3>
+        <h3>Your recipes</h3>
         <div className="search-actions">
           <Link to="/create">
-            <button className="add-recipe-btn" title="Agregar nueva receta">
+            <button className="add-recipe-btn" title="Start a new one!">
               <Plus size={20} />
             </button>
           </Link>
@@ -163,7 +163,7 @@ const SearchSection = ({ showInput, setShowInput, recipesSearch, handleSearchCha
                 type="text"
                 value={recipesSearch}
                 onChange={handleSearchChange}
-                placeholder="Buscar en tus recetas..."
+                placeholder="Cooking..."
                 autoFocus
                 className="search-input"
               />
@@ -172,7 +172,7 @@ const SearchSection = ({ showInput, setShowInput, recipesSearch, handleSearchCha
               </button>
             </div>
           ) : (
-            <button onClick={() => setShowInput(true)} className="search-btn" title="Buscar recetas">
+            <button onClick={() => setShowInput(true)} className="search-btn" title="Search recipes">
               <Search size={20} />
             </button>
           )}
@@ -186,7 +186,7 @@ const RecipeGrid = ({ isLoading, recipes, recipesSearch, handleViewRecipe, handl
   if (isLoading) {
     return (
       <div className="loading-state">
-        <p>Cargando tus recetas...</p>
+        <p>Cooking...</p>
       </div>
     )
   }
@@ -195,14 +195,14 @@ const RecipeGrid = ({ isLoading, recipes, recipesSearch, handleViewRecipe, handl
     return (
       <div className="empty-state">
         {recipesSearch ? (
-          <p>No se encontraron recetas que coincidan con "{recipesSearch}"</p>
+          <p>No recipes were found for "{recipesSearch}"</p>
         ) : (
           <div>
-            <p>Aún no tienes recetas creadas.</p>
+            <p>Empty recipe book.</p>
             <Link to="/create">
               <button className="create-first-recipe-btn">
                 <Plus size={16} />
-                Crear tu primera receta
+                Start your first recipe
               </button>
             </Link>
           </div>
@@ -272,7 +272,7 @@ const Profile = () => {
   if (!isLoggedIn) {
     return (
       <div className="profile-container">
-        <p>inicia sesión para ver tu perfil.</p>
+        <p>You need to Sign in.</p>
       </div>
     )
   }
