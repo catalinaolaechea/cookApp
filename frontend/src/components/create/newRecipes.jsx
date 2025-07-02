@@ -26,7 +26,7 @@ const CreateRecipe = () => {
 
     // Validaciones
     if (!name.trim() || !description.trim() || !ingredients.trim() || !steps.trim()) {
-      setError("Por favor, completa todos los campos correctamente.")
+      setError("Your recipe need to be finish!")
       setIsSubmitting(false)
       return
     }
@@ -42,7 +42,7 @@ const CreateRecipe = () => {
       const token = localStorage.getItem("token")
 
       if (!token) {
-        setError("No hay sesión activa. Por favor, inicia sesión.")
+        setError("please, sign in.")
         setIsSubmitting(false)
         return
       }
@@ -68,7 +68,7 @@ const CreateRecipe = () => {
       console.log("Respuesta completa:", result)
 
       if (response.ok) {
-        setSuccess(`¡Receta "${name}" guardada exitosamente!`)
+        setSuccess(`"${name}" is now in your recipe book !`)
 
         setName("")
         setDescription("")
