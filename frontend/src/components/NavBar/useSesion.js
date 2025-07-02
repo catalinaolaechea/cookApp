@@ -79,7 +79,7 @@ export const useSesion = () => {
 
       if (response.ok) {
         localStorage.setItem("token", data.token)
-        setSuccess("¡Login exitoso!")
+        setSuccess("Welcome to cookApp!")
 
         // ✅ Actualizar estado inmediatamente después del login exitoso
         setIsLoggedIn(true)
@@ -135,14 +135,14 @@ export const useSesion = () => {
       const data = await response.json()
 
       if (response.ok) {
-        setSuccess("¡Cuenta creada exitosamente! Ahora puedes iniciar sesión.")
+        setSuccess("Account created successfully! Log in to start.")
         return { success: true }
       } else {
         setError(data.message || "Error al crear la cuenta")
         return { success: false, error: data.message }
       }
     } catch (error) {
-      setError("Error de conexión. Intenta nuevamente.")
+      setError("Error :(")
       console.error("Error en registro:", error)
       return { success: false, error: "Error de conexión" }
     } finally {
