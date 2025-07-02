@@ -115,7 +115,7 @@ const NavBar = () => {
           {isInitialized ? (
             isLoggedIn ? (
               <div className="d-flex align-items-center gap-3">
-                <span className="text-primary fw-bold">¡Hola, {getUsernameFromToken()}!</span>
+                <span className="text-primary fw-bold">Welcome {getUsernameFromToken()}!</span>
                 <button className="nav-button" onClick={handleLogout}>
                   Sign out
                 </button>
