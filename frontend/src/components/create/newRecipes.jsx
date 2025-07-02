@@ -91,7 +91,7 @@ const CreateRecipe = () => {
       <div className="create-container">
         <div className="card-container">
           <div className="mb-3 mt-3">
-            <h2>Crea tu receta</h2>
+            <h2>Create your recipe</h2>
           </div>
 
           <div className="create-body">
